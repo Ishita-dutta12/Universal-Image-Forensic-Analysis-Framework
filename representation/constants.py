@@ -1,0 +1,12 @@
+STAGES = (
+    "stage1",
+    "stage2",
+    "stage3",
+    "stage4",
+)
+
+REPRESENTATIONS = (
+    "spatial",
+    "frequency",
+    "context",
+)

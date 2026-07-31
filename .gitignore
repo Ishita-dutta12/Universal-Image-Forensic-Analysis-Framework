@@ -1,0 +1,49 @@
+
+
+.temp
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# pytest
+.pytest_cache/
+
+# Build
+build/
+dist/
+*.egg-info/
+
+# Logs
+*.log
+
+# Model checkpoints
+*.pth
+*.pt
+*.ckpt
+
+# Dataset
+datasets/
+data/
+
+# Generated outputs
+outputs/
+*.png
+
+# OS
+.DS_Store
+Thumbs.db
+outputs/
+*.png
