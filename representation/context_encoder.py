@@ -250,41 +250,25 @@ class ContextEncoder(BaseRepresentationEncoder):
             elif isinstance(module, nn.LayerNorm):
                 nn.init.ones_(module.weight)
                 nn.init.zeros_(module.bias)
-                
-        def forward(
-            self,
-            attention_output: AttentionOutput,
-            ) -> RepresentationOutput:
 
-            return RepresentationOutput(
+    def forward(
+        self,
+        attention_output: AttentionOutput,
+    ) -> dict:
+        attention_output.validate()
 
-            stage1=StageRepresentation(
-            stage="stage1",
-            context=self._encode_stage(
+        return {
+            "stage1": self._encode_stage(
                 attention_output.stage1,
             ),
-        ),
-
-        stage2=StageRepresentation(
-            stage="stage2",
-            context=self._encode_stage(
+            "stage2": self._encode_stage(
                 attention_output.stage2,
             ),
-        ),
-
-        stage3=StageRepresentation(
-            stage="stage3",
-            context=self._encode_stage(
+            "stage3": self._encode_stage(
                 attention_output.stage3,
             ),
-        ),
-
-        stage4=StageRepresentation(
-            stage="stage4",
-            context=self._encode_stage(
+            "stage4": self._encode_stage(
                 attention_output.stage4,
             ),
-        ),
-
-        original_size=attention_output.original_size,
-    )
+            "original_size": attention_output.original_size,
+        }

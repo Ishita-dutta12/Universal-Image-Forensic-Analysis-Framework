@@ -107,10 +107,10 @@ class ForensicReasoner(nn.Module):
         forensic_embedding = self.fusion(
             refined_evidences,
         )
-        print("Type:", type(forensic_embedding))
+        #print("Type:", type(forensic_embedding))
 
         import torch
-        print("Is Tensor:", isinstance(forensic_embedding, torch.Tensor))
+        #print("Is Tensor:", isinstance(forensic_embedding, torch.Tensor))
 
         # Estimate confidence
         global_confidence = self.confidence(

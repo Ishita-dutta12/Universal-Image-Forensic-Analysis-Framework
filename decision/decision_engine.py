@@ -325,6 +325,37 @@ class DecisionEngine(nn.Module):
         )
 
         return embedding
+
+    def forward_logits(
+        self,
+        embedding: torch.Tensor,
+    ) -> torch.Tensor:
+    
+
+        if not isinstance(embedding, torch.Tensor):
+            raise ClassificationError(
+            "Embedding must be a torch.Tensor."
+        )
+
+        if embedding.ndim != 2:
+            raise ClassificationError(
+            "Embedding must be 2-dimensional."
+        )
+
+        if embedding.shape[1] != _EMBEDDING_DIM:
+            raise ClassificationError(
+            f"Expected embedding size {_EMBEDDING_DIM}, "
+            f"got {embedding.shape[1]}."
+        )
+
+        logits = self.classifier(embedding)
+
+        if not torch.isfinite(logits).all():
+            raise ClassificationError(
+            "Classifier produced invalid logits."
+        )
+
+        return logits
     
     def _predict_classes(
     self,

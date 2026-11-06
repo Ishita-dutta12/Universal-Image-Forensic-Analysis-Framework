@@ -167,6 +167,28 @@ class FrequencyEncoder(BaseRepresentationEncoder):
         out.validate()
         return out
 
+        def forward(
+            self,
+            attention_output: AttentionOutput,
+        ) -> dict:
+            attention_output.validate()
+
+            return {
+            "stage1": self._encode_stage(
+                attention_output.stage1,
+            ),
+            "stage2": self._encode_stage(
+                attention_output.stage2,
+            ),
+            "stage3": self._encode_stage(
+                attention_output.stage3,
+            ),
+            "stage4": self._encode_stage(
+                attention_output.stage4,
+            ),
+            "original_size": attention_output.original_size,
+            }
+
     
    
         
