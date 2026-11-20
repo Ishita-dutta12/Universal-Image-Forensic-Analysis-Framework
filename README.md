@@ -48,10 +48,90 @@ UIFAF
 ├── representation/
 ├── training/
 ├── tests/
-├── ufre/
-├── visualization/
-├── weights/
-├── main.py
-├── train.py
-├── infer.py
-└── README.md
+
+---
+
+## 🔬 Detection Categories
+
+The framework is designed to classify images into the following forensic categories:
+
+- Authentic
+- AI Generated
+- AI Edited
+- Face Swap
+- Deepfake
+- Copy-Move Forgery
+- Image Splicing
+- Object Removal
+- Metadata Tampering
+- Screenshot / Re-photographed
+- Computer Generated Image (CGI)
+- Unknown
+
+---
+
+## ⚙ Current Pipeline
+
+The current pipeline performs:
+
+1. Image Validation
+2. Image Decoding
+3. Metadata Extraction
+4. Backbone Feature Extraction
+5. Attention Enhancement
+6. Multi-Representation Learning
+7. Forensic Reasoning
+8. Decision Making
+9. Localization
+10. Report Generation
+
+---
+
+## 📑 Example JSON Report
+
+The API returns a comprehensive forensic report including:
+
+- File Information
+- Evidence Scores
+- Evidence Summary
+- Risk Assessment
+- Confidence Assessment
+- Final Verdict
+- Primary & Secondary Classification
+- Localization Results
+- Metadata Summary
+- Raw Model Outputs
+- Threshold Information
+- System Information
+- Performance Statistics
+
+---
+
+## 🚀 API
+
+Launch the FastAPI server:
+
+```bash
+uvicorn api.app:app --reload
+
+Open Swagger UI:
+
+- **Docs:** [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+
+The API supports:
+
+- Upload image directly from local storage
+- Analyze images from external URLs
+- Returns structured JSON forensic reports
+
+---
+
+## 🛠 Technology Stack
+
+| Category | Technologies |
+| :--- | :--- |
+| **Programming** | Python 3.11 |
+| **Deep Learning** | PyTorch, TorchVision |
+| **API** | FastAPI, Uvicorn |
+| **Image Processing** | Pillow, NumPy |
+| **Visualization** | Matplotlib |
